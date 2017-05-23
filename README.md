@@ -49,7 +49,7 @@ Open a terminal on your machine and execute the following commands:
 7.  edit .env file and copy/paste the credentials for NLU, Conversation and Weather services (you will create these next).
 ```
 
-To create Natural Language Understanding (NLU) and Conversation service credentials, on your terminal window, execute the following:
+To create Tone Analyzer (TA), Natural Language Understanding (NLU) and Conversation service credentials, on your terminal window, execute the following:
 ```
 1.  cf login   ==>  connects you to your bluemix account
   - API endpoint: https://api.ng.bluemix.net
@@ -74,11 +74,23 @@ CONVERSATION_PASSWORD=password
 7.  cf create-service-key convapp-nlu-service svcKey
 
 8.  cf service-key convapp-nlu-service svcKey
- ==> returns apikey for NLU service
+ ==> returns username and password for NLU service
 
 9.  Copy NLU username and password to the .env file
 NATURAL_LANGUAGE_UNDERSTANDING_USERNAME=username
 NATURAL_LANGUAGE_UNDERSTANDING_PASSWORD =password
+
+10.  cf create-service tone_analyzer lite convapp-ta-service
+ ==> create Tone Analyzer service using lite plan and call it convapp-ta-service
+
+11.  cf create-service-key convapp-ta-service svcKey
+
+12.  cf service-key convapp-ta-service svcKey
+ ==> returns username and password for Tone Analyzer service
+
+13.  Copy Tone Analyzer username and password to the .env file
+TONE_ANALYZER_USERNAME=username
+TONE_ANALYZER_PASSWORD =password
 ```
 
 To get the weather, we will rely on the [Weather Underground API](https://www.wunderground.com/weather/api/). To use the weather underground api, you need to [sign up for an apikey](https://www.wunderground.com/weather/api/). Once you get the key, edit .env file and copy the weather api key to .env file.
@@ -92,7 +104,7 @@ To do so:
   * Login with your Bluemix credentials
   * Find your conversation service with the name convapp-conv-service. Click to open the page for that service.
   * Find the Launch button and click it to launch the tooling for the conversation service.
-  * Click Import to import a json file which defines the conversation workspace ==> Choose file convapp/conversation-nlu/training/car_workspace_nlu.json
+  * Click Import to import a json file which defines the conversation workspace ==> Choose file convapp/conversation-nlu/training/car_workspace_nlu_ta.json
   * This imports intents, entities, and the dialog  for this conversation into a workspace called NLU_Car_Dashboard.
   * Click the Actions menu (3 vertical dots in top right of workspace tile) to View details.
   * Copy Workspace ID, edit .env file and add workspace id
@@ -103,6 +115,7 @@ Now you’re ready to run the application. On the terminal command line, execute
 node server.js
 Point your browser to http://localhost:3000
 Experiment with conversation application
+   Note the conversation starts out asking how you're feeling and based on your response, it understand the emotional tone and responds accordingly.
    Ask things like: “What is the weather in Austin, TX”
 ```
 
