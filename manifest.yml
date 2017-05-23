@@ -1,8 +1,6 @@
 applications:
-- name: jk-conversation-simple
+- name: jk-conv-nlu-ta
   command: npm start
   path: .
   memory: 256M
   instances: 1
-  env:
-    NPM_CONFIG_PRODUCTION: false
