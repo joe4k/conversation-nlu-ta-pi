@@ -91,7 +91,36 @@ NATURAL_LANGUAGE_UNDERSTANDING_PASSWORD =password
 13.  Copy Tone Analyzer username and password to the .env file
 TONE_ANALYZER_USERNAME=username
 TONE_ANALYZER_PASSWORD =password
+
+14.  cf create-service personality_insights lite convapp-pi-service
+ ==> create Personality Insights service using lite plan and call it convapp-pi-service
+
+15.  cf create-service-key convapp-pi-service svcKey
+
+16.  cf service-key convapp-pi-service svcKey
+ ==> returns username and password for Personality Insights service
+
+17.  Copy Personality Insights username and password to the .env file
+PERSONALITY_INSIGHTS_USERNAME=username
+PERSONALITY_INSIGHTS_PASSWORD=password
+
 ```
+
+To computer personality profile and consumption preferances for a user, we need as input text written 
+by that user. A common approach to collecting such text is to leverage Twitter to obtain tweets by the 
+user. To do so, you need to have a Twitter developer account and you need to create an app which would provide
+you with the credentials needed to execute Twitter APIs:
+* Create Twitter user account if you don't have one (https://twitter.com/signup)
+* Go to https://apps.twitter.com/ and sign in with your user account information.
+* Once logged in, create a new app by clicking on "Create New App" button.
+* Fill out required information, agree to the terms and click "Create your Twitter application".
+* Click on "Keys and Access Tokens" tab and copy the required Twitter credentials. You will need four value, 
+Consumer Key (API key), Consumer Secret (API Secret), Access Token, and Access Token Secret.
+* Copy these values to the .env file
+TWITTER_CONSUMER_KEY=YOUR_TWITTER_CONSUMER_KEY
+TWITTER_CONSUMER_SECRET=YOUR_TWITTER_CONSUMER_SECRET
+TWITTER_ACCESS_TOKEN_KEY=YOUR_TWITTER_ACCESS_TOKEN
+TWITTER_ACCESS_TOKEN_SECRET=YOUR_TWITTER_ACCESS_TOKEN_SECRET
 
 To get the weather, we will rely on the [Weather Underground API](https://www.wunderground.com/weather/api/). To use the weather underground api, you need to [sign up for an apikey](https://www.wunderground.com/weather/api/). Once you get the key, edit .env file and copy the weather api key to .env file.
 
