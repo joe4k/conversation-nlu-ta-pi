@@ -133,7 +133,7 @@ To do so:
   * Login with your Bluemix credentials
   * Find your conversation service with the name convapp-conv-service. Click to open the page for that service.
   * Find the Launch button and click it to launch the tooling for the conversation service.
-  * Click Import to import a json file which defines the conversation workspace ==> Choose file convapp/conversation-nlu/training/car_workspace_nlu_ta.json
+  * Click Import to import a json file which defines the conversation workspace ==> Choose file convapp/conversation-nlu/training/car_workspace_nlu_ta_pi.json
   * This imports intents, entities, and the dialog  for this conversation into a workspace called NLU_Car_Dashboard.
   * Click the Actions menu (3 vertical dots in top right of workspace tile) to View details.
   * Copy Workspace ID, edit .env file and add workspace id
