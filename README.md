@@ -150,11 +150,14 @@ Experiment with conversation application
 
 To push your application to Bluemix:
 ``` sh
-  edit manifest.yml and change name to a unique name (for example, convapp-conv-jk)
+  edit manifest.yml and change name to a unique name (for example, convapp-conv-ta-pi-jk)
   cf push
-  point your browser to http://convapp-conv-nlu-jk.mybluemix.net
+  point your browser to http://convapp-conv-nlu-ta-pi-jk.mybluemix.net
   Experiment with conversation application
-    Ask things like: “What is the weather in Austin, TX”
+    Note that depending on your response for "How are you feeling" results in a variation in how the app
+    responds back. This is becaue your response goes through Tone Analyzer which extracts the tone and
+    based on that different responses are offered.
+    To see how NLU and the Weather APIs are used, ask things like: “What is the weather in Austin, TX”
 ```
 
 # License
